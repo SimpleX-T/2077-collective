@@ -1,0 +1,15 @@
+ <svg
+
+                width="150"
+                height="10"
+                viewBox="0 0 100 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 5C25 5 25 1 50 1C75 1 75 5 100 5"
+                  stroke="#46D3D8"
+                  strokeWidth="2"
+                  fill="none"
+                />
+              </svg>
