@@ -103,12 +103,12 @@ export default function Hero() {
     <main className="w-full min-h-screen">
       <section className="w-full max-w-5xl min-h-screen relative flex items-center justify-center mx-auto">
         <div className="p-4 mb-6 text-center">
-          <h1 className="text-4xl md:text-7xl font-bold">
-            Create frames for the{" "}
-            <span className="relative text-transparent inline-block bg-gradient-to-br to-[#46D3D8] via-[#081F2B] from-[#50AFD4] bg-clip-text">
-              2077
+          <h1 className="text-4xl md:text-6xl font-bold">
+            Show the world you&apos;re{" "}
+            <span className="relative inline-block text-[#46D3D8] hover:underline">
+              #BuiltOnEthereum
               <svg
-                className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-full h-3"
+                className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-full h-full hidden"
                 viewBox="0 0 100 10"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -116,15 +116,18 @@ export default function Hero() {
                 <path
                   d="M0 5C25 5 25 1 50 1C75 1 75 5 100 5"
                   stroke="#46D3D8"
-                  strokeWidth="2"
+                  strokeWidth="1"
                   fill="none"
                 />
               </svg>
-            </span>{" "}
-            collective campaign.
+              .
+            </span>
           </h1>
-          <p className="mt-4 text-lg text-[#50AFD4]">
-            Let&apos;s make Ethereum cool again!
+          <p className="mt-4 text-md text-gray-300">
+            Join the movement by adding the #BuiltOnEthereum frame to your logo.
+            <br />
+            Stand with the ecosystem, rep your project, and help make Ethereum
+            cool again!
           </p>
         </div>
 
@@ -147,14 +150,50 @@ export default function Hero() {
 
       <section
         ref={secondSectionRef}
-        className="backdrop-blur-sm mx-auto py-12 w-full"
+        className="backdrop-blur-sm mx-auto py-12 w-full h-screen pt-12 relative max-w-7xl"
       >
-        <h2 className="text-3xl mt-6 font-semibold text-center">
-          Create your cool frame
-        </h2>
-        <p className="mb-6 text-sm text-center text-gray-300">
-          Upload an image and select a frame type
-        </p>
+        {/* <div className="bg-gradient-to-tr from-[#041219] -z-50 to-[#46d3d8] blur-2xl w-1/2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square rounded-full" /> */}
+        <div className="mb-12 p-4">
+          <h2 className="text-3xl mt-6 font-semibold text-center mb-3">
+            Let&apos;s make Ethereum impossible to ignore!
+          </h2>
+          <p className="mb-6 text-sm text-center text-gray-300">
+            Upload an image and select a frame type
+          </p>
+
+          <ul className="w-full justify-between flex md:max-w-[50%] mx-auto mt-12">
+            <li className="md:min-w-32 p-2 text-sm md:px-4 md:py-3 border border-[#46d3d8] flex items-center justify-center bg-gradient-to-r from-[#041219] to-[#081F2B] rounded-lg after:content-[''] after relative">
+              Create your frame
+              <Image
+                src="/next_arrow.png"
+                alt="arrow"
+                width={300}
+                height={300}
+                className="absolute top-1/2 -translate-y-1/2 left-full translate-x-4 w-14 hidden md:block"
+              />
+            </li>
+            <li className="md:min-w-32 p-2 text-sm md:px-4 md:py-3 border border-[#46d3d8] flex items-center justify-center bg-gradient-to-r from-[#041219] to-[#081F2B] rounded-lg relative">
+              Share it
+              <Image
+                src="/next_arrow.png"
+                alt="arrow"
+                width={300}
+                height={300}
+                className="absolute top-1/2 -translate-y-1/2 left-full translate-x-4 w-14 hidden md:block"
+              />
+            </li>
+            <li className="md:min-w-32 p-2 text-sm md:px-4 md:py-3 border border-[#46d3d8] flex items-center justify-center bg-gradient-to-r from-[#041219] to-[#081F2B] rounded-lg relative">
+              Lead the movement
+              <Image
+                src="/arrow.png"
+                alt="arrow"
+                width={300}
+                height={300}
+                className="absolute -bottom-full translate-x-1/2 translate-y-[65%] rotate-[30deg] right-0 hidden md:block"
+              />
+            </li>
+          </ul>
+        </div>
 
         <div className="px-4 w-full flex flex-col items-center">
           <FrameCanvas

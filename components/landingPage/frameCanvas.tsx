@@ -19,7 +19,7 @@ export const FrameCanvas: React.FC<FrameCanvasProps> = ({
     <div
       ref={canvasRef}
       className={`relative w-72 cursor-pointer bg-[#081F2B] aspect-square transition-all duration-200 overflow-hidden ${
-        isDragOver ? "border-primary opacity-75 scale-105" : "border-gray-600"
+        isDragOver ? "border-primary opacity-75 scale-105" : "border-[#46d3d8]"
       } ${selectedFrame.shape === "circle" ? "rounded-full" : "rounded"}`}
       onClick={onFileInputClick}
       onDragOver={onDragOver}
@@ -56,7 +56,9 @@ export const FrameCanvas: React.FC<FrameCanvasProps> = ({
       )}
 
       <div
-        className={`absolute inset-0 w-full h-full bg-no-repeat bg-center bg-contain pointer-events-none ${selectedFrame.backgroundImage}`}
+        className={`absolute inset-0 w-full h-full bg-no-repeat bg-center bg-contain pointer-events-none ${
+          image ? selectedFrame.backgroundImage : ""
+        }`}
       />
 
       {!image && !isDragOver && (
