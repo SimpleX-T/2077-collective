@@ -2,55 +2,28 @@ import React, { useState, useRef } from "react";
 import { toPng, toJpeg } from "html-to-image";
 import Image from "next/image";
 import { FaArrowDown } from "react-icons/fa6";
-// import { motion, useScroll } from "motion/react";
-import { Button } from "@/components/ui/button";
-// import { Card, CardContent } from "@/components/ui/card";
-
-interface Frame {
-  [frameId: string | number]: {
-    id: string;
-    name: string;
-    shape: "circle" | "square";
-    backgroundImage: string;
-  };
-}
-
-const frameConfigs: Frame = {
-  frame1: {
-    id: "frame1",
-    name: "Square Frame",
-    shape: "square",
-    backgroundImage: "frame1",
-  },
-  frame2: {
-    id: "frame2",
-    name: "Circle Frame",
-    shape: "circle",
-    backgroundImage: "frame2",
-  },
-};
+import { frameConfigs } from "@/lib/constants";
+import { FrameCanvas } from "./frameCanvas";
+import { ImageControls } from "./imageControls";
+import { FrameSelector } from "./frameSelector";
+import { DownloadButtons } from "./downloadButtons";
 
 export default function Hero() {
   const [image, setImage] = useState<string | null>(null);
   const [selectedFrame, setSelectedFrame] = useState(frameConfigs.frame1);
   const [imageScale, setImageScale] = useState(1);
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [isDragOver, setIsDragOver] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
   const secondSectionRef = useRef<HTMLElement>(null);
 
-  // const { scrollYProgress } = useScroll();
-
   const handleScrollToSection = () => {
     secondSectionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleFileInputClick = () => {
-    if (isDragging) return;
     fileInputRef.current?.click();
   };
 
@@ -79,63 +52,51 @@ export default function Hero() {
     setIsDragOver(true);
   };
 
+  const handleDragLeave = () => {
+    setIsDragOver(false);
+  };
+
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setIsDragOver(false);
-
     const file = e.dataTransfer.files[0];
     if (file?.type.startsWith("image/")) {
       processImageFile(file);
     }
   };
 
-  const handleDownload = (format: string) => {
-    if (!image) return;
-    if (canvasRef.current) {
-      const toImage = format === "png" ? toPng : toJpeg;
-      toImage(canvasRef.current, {
-        quality: 1.0,
-        pixelRatio: 3,
-      }).then((dataUrl) => {
+  const handleDownload = (format: "png" | "jpg") => {
+    if (!image || !canvasRef.current) return;
+    const toImage = format === "png" ? toPng : toJpeg;
+    toImage(canvasRef.current, { quality: 1.0, pixelRatio: 3 }).then(
+      (dataUrl) => {
         const link = document.createElement("a");
         link.href = dataUrl;
         link.download = `profile-frame.${format}`;
         link.click();
-      });
-    }
+      }
+    );
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!image) return;
-    e.preventDefault();
-    setIsDragging(true);
-    setDragStart({
-      x: e.clientX - imagePosition.x,
-      y: e.clientY - imagePosition.y,
-    });
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    setImagePosition({
-      x: e.clientX - dragStart.x,
-      y: e.clientY - dragStart.y,
-    });
-  };
-
-  const handleMouseUp = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsDragging(false);
-  };
-
-  const handleWheel = (e: React.WheelEvent) => {
-    if (!image) return;
-    e.preventDefault();
-    const delta = e.deltaY * -0.01;
-    const newScale = Math.min(Math.max(0.5, imageScale + delta), 3);
-    setImageScale(newScale);
+  // Image control handlers (using fixed steps)
+  const moveStep = 5;
+  const scaleStep = 0.1;
+  const handleZoomIn = () =>
+    setImageScale((prev) => Math.min(prev + scaleStep, 3));
+  const handleZoomOut = () =>
+    setImageScale((prev) => Math.max(prev - scaleStep, 0.5));
+  const handleMoveUp = () =>
+    setImagePosition((prev) => ({ ...prev, y: prev.y - moveStep }));
+  const handleMoveDown = () =>
+    setImagePosition((prev) => ({ ...prev, y: prev.y + moveStep }));
+  const handleMoveLeft = () =>
+    setImagePosition((prev) => ({ ...prev, x: prev.x - moveStep }));
+  const handleMoveRight = () =>
+    setImagePosition((prev) => ({ ...prev, x: prev.x + moveStep }));
+  const handleReset = () => {
+    setImagePosition({ x: 0, y: 0 });
+    setImageScale(1);
   };
 
   return (
@@ -168,7 +129,7 @@ export default function Hero() {
         </div>
 
         <div
-          className="absolute w-52 aspect-square left-1/2 -translate-x-1/2 bottom-0 flex items-center justify-center cursor-pointer"
+          className="absolute w-52 aspect-square left-1/2 -translate-x-1/2 bottom-6 md:bottom-0 flex items-center justify-center cursor-pointer"
           onClick={handleScrollToSection}
         >
           <Image
@@ -195,118 +156,49 @@ export default function Hero() {
           Upload an image and select a frame type
         </p>
 
-        <form className="px-4 w-full flex flex-col items-center">
-          <div
-            className={`relative w-72 cursor-pointer bg-[#081F2B] aspect-square transition-all duration-200 ${
-              isDragOver
-                ? "border-primary opacity-75 scale-105"
-                : "border-gray-600"
-            } ${selectedFrame.shape === "circle" ? "rounded-full" : "rounded"}`}
-            onClick={handleFileInputClick}
+        <div className="px-4 w-full flex flex-col items-center">
+          <FrameCanvas
+            image={image}
+            selectedFrame={selectedFrame}
+            imagePosition={imagePosition}
+            imageScale={imageScale}
+            fileInputRef={fileInputRef}
+            canvasRef={canvasRef}
+            isDragOver={isDragOver}
+            onFileInputClick={handleFileInputClick}
+            onImageUpload={handleImageUpload}
             onDragOver={handleDragOver}
-            onDragLeave={() => setIsDragOver(false)}
+            onDragLeave={handleDragLeave}
             onDrop={handleDrop}
-          >
-            <input
-              type="file"
-              ref={fileInputRef}
-              hidden
-              accept="image/*"
-              onChange={handleImageUpload}
+          />
+
+          {image && (
+            <ImageControls
+              onZoomIn={handleZoomIn}
+              onZoomOut={handleZoomOut}
+              onMoveUp={handleMoveUp}
+              onMoveDown={handleMoveDown}
+              onMoveLeft={handleMoveLeft}
+              onMoveRight={handleMoveRight}
+              onReset={handleReset}
             />
+          )}
 
-            {image && (
-              <div
-                className={`absolute inset-0 w-full h-full ${
-                  selectedFrame.shape === "circle"
-                    ? "rounded-full overflow-hidden"
-                    : ""
-                }`}
-                style={{
-                  transform: `translate(${imagePosition.x}px, ${imagePosition.y}px) scale(${imageScale})`,
-                  transition: isDragging ? "none" : "transform 0.1s ease-out",
-                }}
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseUp}
-                onWheel={handleWheel}
-              >
-                <Image
-                  src={image}
-                  alt="Uploaded"
-                  layout="fill"
-                  className="object-contain"
-                  style={{ pointerEvents: "none" }}
-                />
-              </div>
-            )}
-
-            <div
-              className={`absolute inset-0 w-full h-full bg-no-repeat bg-center bg-contain pointer-events-none ${selectedFrame.backgroundImage}`}
+          <div className="mt-6 flex flex-col items-center gap-4">
+            <FrameSelector
+              selectedFrameId={selectedFrame.id}
+              onChange={handleFrameChange}
             />
-
-            {!image && !isDragOver && (
-              <p className="text-gray-300 text-sm text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                Click to upload image
-                <br />
-                or drag and drop
-              </p>
-            )}
-            {isDragOver && (
-              <div className="absolute inset-0 bg-primary/10 flex items-center justify-center">
-                <p className="text-primary text-lg font-semibold">
-                  Drop to upload
-                </p>
-              </div>
-            )}
+            <DownloadButtons onDownload={handleDownload} />
           </div>
 
-          <div className="space-y-4 mt-6">
-            <div className="w-full max-w-fit flex items-center justify-center mx-auto border border-gray-600 rounded-3xl p-1">
-              <select
-                name="frame-type"
-                value={selectedFrame.id}
-                onChange={(e) => handleFrameChange(e.target.value)}
-                className="bg-gray-900 px-4 text-md text-[#50AFD4] hover:bg-[#50AFD4] hover:text-white py-1 appearance-none rounded-l-full"
-              >
-                {Object.values(frameConfigs).map((frame) => (
-                  <option key={frame.id} value={frame.id}>
-                    {frame.name}
-                  </option>
-                ))}
-              </select>
-              <Button
-                size="sm"
-                className="bg-gray-900 px-4 text-md text-[#50AFD4] hover:bg-[#50AFD4] hover:text-white rounded-none py-1"
-                onClick={() => handleDownload("png")}
-              >
-                Download PNG
-              </Button>
-              <Button
-                size="sm"
-                className="bg-gray-900 px-4 text-md text-[#50AFD4] hover:bg-[#50AFD4] hover:text-white rounded-r-full py-1"
-                onClick={() => handleDownload("jpg")}
-              >
-                Download JPG
-              </Button>
+          {image && (
+            <div className="text-center text-sm text-gray-300 mt-4">
+              Tip: Use the controls above to adjust the image scale and
+              position.
             </div>
-
-            {image && (
-              <div className="text-center text-sm text-gray-300">
-                Tip: Use mouse wheel to zoom, click and drag to position
-              </div>
-            )}
-          </div>
-
-          <div className="space-y-4">
-            {image && (
-              <div className="text-center text-sm text-gray-300">
-                Tip: Use mouse wheel to zoom, click and drag to position
-              </div>
-            )}
-          </div>
-        </form>
+          )}
+        </div>
       </section>
     </main>
   );

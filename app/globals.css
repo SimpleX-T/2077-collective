@@ -14,11 +14,13 @@ body {
 
 .frame1 {
   background-image: url("/frames/square_frame.png");
+  background-size: 101% 102%;
+  background-position: center center;
 }
 
 .frame2 {
   background-image: url("/frames/circle_frame.png");
-  background-size: 168%;
+  background-size: 165%;
 }
 
 @layer base {
