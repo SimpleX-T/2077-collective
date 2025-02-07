@@ -21,6 +21,7 @@ body {
 .frame2 {
   background-image: url("/frames/circle_frame.png");
   background-size: 165%;
+  background-position: center center;
 }
 
 @layer base {

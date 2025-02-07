@@ -101,9 +101,9 @@ export default function Hero() {
 
   return (
     <main className="w-full min-h-screen">
-      <section className="w-full max-w-7xl min-h-screen relative flex items-center justify-center mx-auto">
+      <section className="w-full max-w-5xl min-h-screen relative flex items-center justify-center mx-auto">
         <div className="p-4 mb-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold">
+          <h1 className="text-4xl md:text-7xl font-bold">
             Create frames for the{" "}
             <span className="relative text-transparent inline-block bg-gradient-to-br to-[#46D3D8] via-[#081F2B] from-[#50AFD4] bg-clip-text">
               2077
