@@ -51,7 +51,6 @@ export const FrameCanvas: React.FC<FrameCanvasProps> = ({
     selectedFrame.shape === "circle" ? "rounded-full" : "rounded";
 
   return (
-    // <section className="w-full relative my-4">
     <div
       ref={canvasRef}
       className={`cursor-pointer bg-[#081F2B] ${containerClasses} transition-all duration-200 overflow-hidden border relative ${
@@ -71,7 +70,7 @@ export const FrameCanvas: React.FC<FrameCanvasProps> = ({
       />
 
       {image && type === "cover" && (
-        <div className="absolute bottom-4 md:bottom-8 right-4 z-[999] w-14 text-xs">
+        <div className="absolute bottom-3 md:bottom-6 right-2 md:right-5 z-[999] w-14 text-xs md:w-32">
           <Image
             src={selectedFrame.backgroundImage}
             alt="Uploaded"
@@ -130,6 +129,5 @@ export const FrameCanvas: React.FC<FrameCanvasProps> = ({
         </div>
       )}
     </div>
-    // </section>
   );
 };
