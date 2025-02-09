@@ -41,7 +41,7 @@ export const FrameCanvas: React.FC<FrameCanvasProps> = ({
   // Determine container classes based on the type of frame
   let containerClasses = "";
   if (type === "cover") {
-    containerClasses = "w-full aspect-video"; // a wide rectangle for cover photos
+    containerClasses = "w-full max-w-[1000px] aspect-[3/1]"; // a wide rectangle for cover photos
   } else {
     // Profile picture – square area (can be circular if the frame calls for it)
     containerClasses = "w-32 md:w-36 aspect-square";
@@ -70,9 +70,23 @@ export const FrameCanvas: React.FC<FrameCanvasProps> = ({
         onChange={onImageUpload}
       />
 
+      {image && type === "cover" && (
+        <div className="absolute bottom-4 md:bottom-8 right-4 z-[999] w-14 text-xs">
+          <Image
+            src={selectedFrame.backgroundImage}
+            alt="Uploaded"
+            width={300}
+            height={80}
+            className="pointer-events-none w-full h-full object-contain"
+          />
+        </div>
+      )}
+
       {image && (
         <div
-          className={`absolute inset-0 w-full h-full ${frameRounding}`}
+          className={`absolute inset-0 w-full h-full ${
+            type === "pfp" ? frameRounding : ""
+          }`}
           style={{
             transform: `translate(${imagePosition.x}px, ${imagePosition.y}px) scale(${imageScale})`,
             transition: "transform 0.2s ease-out",

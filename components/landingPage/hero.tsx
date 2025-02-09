@@ -11,7 +11,7 @@ import { DownloadButtons } from "./downloadButtons";
 export default function Hero() {
   // ----- Cover Photo States -----
   const [coverImage, setCoverImage] = useState<string | null>(null);
-  const [coverFrame, setCoverFrame] = useState(coverFrameConfigs.classic);
+  const [coverFrame, setCoverFrame] = useState(coverFrameConfigs.dark_wide_bw);
   const [coverImageScale, setCoverImageScale] = useState(1);
   const [coverImagePosition, setCoverImagePosition] = useState({ x: 0, y: 0 });
   const [coverIsDragOver, setCoverIsDragOver] = useState(false);
@@ -238,7 +238,7 @@ export default function Hero() {
         </div>
 
         {/* ----- Cover Photo Section ----- */}
-        <div className="mb-12 border border-[#46d3d8]/40 py-4 rounded max-w-2xl mx-auto">
+        <div className="mb-12 border border-[#46d3d8]/40 py-4 rounded max-w-7xl mx-auto">
           <h3 className="text-2xl font-semibold text-center mb-4">
             Cover Photo
           </h3>

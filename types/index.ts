@@ -2,7 +2,7 @@ export interface Frame {
   [frameId: string]: {
     id: string;
     name: string;
-    shape: "circle" | "square";
+    shape: "circle" | "square" | "rectangle";
     backgroundImage: string;
   };
 }
