@@ -1,4 +1,4 @@
-import { Frame } from "@/types";
+import { Frame, GuildCardProps } from "@/types";
 
 export const profileFrameConfigs: Frame = {
   circle: {
@@ -89,3 +89,41 @@ export const coverFrameConfigs: Frame = {
     backgroundImage: "/frames/cover_frames/tall_light_flat.png",
   },
 };
+
+export const guilds: GuildCardProps[] = [
+  {
+    title: "Marketing/Social Media Guild",
+    description:
+      "Spread the word on social platforms. Whether you’re on X, Farcaster, or Lens, your engagement helps build noise and battle FUD.",
+    guildLead: "Ciefa",
+    discordHandle: "@Ciefa",
+  },
+  {
+    title: "Writing/Research Guild",
+    description:
+      "Produce engaging articles, detailed research reports, and scripts. Help explain Ethereum’s innovations through Etherpedia, X threads, and more.",
+    guildLead: "Sankrit K",
+    discordHandle: "@Sankrit K",
+  },
+  {
+    title: "Design & Branding Guild",
+    description:
+      "Create stunning infographics, social media images, and provide feedback on our websites. Your designs help make complex concepts accessible.",
+    guildLead: "Charis",
+    discordHandle: "@Charis",
+  },
+  {
+    title: "Development Guild",
+    description:
+      "Contribute to open-source projects like Etherpedia, 2077 Research, and the EIP Wiki. Whether you’re a seasoned dev or a beginner, your code counts!",
+    guildLead: "Ndu",
+    discordHandle: "@Ndu",
+  },
+  {
+    title: "Video Creation Guild",
+    description:
+      "From short, punchy videos to long-form content that adds depth to our articles, your creativity is key in making Ethereum accessible for all.",
+    guildLead: "GeniusYinka",
+    discordHandle: "@GeniusYinka",
+  },
+];

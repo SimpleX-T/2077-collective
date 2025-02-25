@@ -2,11 +2,18 @@ import React, { useState, useRef } from "react";
 import { toPng, toJpeg } from "html-to-image";
 import Image from "next/image";
 import { FaArrowDown } from "react-icons/fa6";
-import { profileFrameConfigs, coverFrameConfigs } from "@/lib/constants";
+import {
+  profileFrameConfigs,
+  coverFrameConfigs,
+  guilds,
+} from "@/lib/constants";
 import { FrameCanvas } from "./frameCanvas";
 import { ImageControls } from "./imageControls";
 import { FrameSelector } from "./frameSelector";
 import { DownloadButtons } from "./downloadButtons";
+import Link from "next/link";
+import GuildCard from "../GuildCard";
+import ContributionSection from "../ContributionSection";
 
 export default function Hero() {
   // ----- Cover Photo States -----
@@ -195,17 +202,24 @@ export default function Hero() {
       <section className="w-full max-w-5xl min-h-screen relative flex items-center justify-center mx-auto">
         <div className="p-4 mb-6 text-center">
           <h1 className="text-3xl md:text-6xl font-bold">
-            Show the world you&apos;re{" "}
-            <span className="relative inline-block text-[#46D3D8] hover:underline">
-              #BuiltOnEthereum.
+            Welcome To 2077 Collective:
+            <span className="relative inline-block text-[#46D3D8]">
+              Ethernauts&apos; Contribution Zone!
             </span>
           </h1>
-          <p className="mt-4 text-md text-gray-300">
-            Join the movement by adding your personalized frames.
+          <p className="my-6 text-md text-gray-300">
+            Join the unofficial marketing department of Ethereum and help make
+            Ethereum cool again.{" "}
           </p>
+          <Link
+            href="#get-started"
+            className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
+          >
+            Get Started
+          </Link>
         </div>
         <div
-          className="absolute w-52 aspect-square left-1/2 -translate-x-1/2 bottom-6 md:bottom-0 flex items-center justify-center cursor-pointer"
+          className="absolute w-40 aspect-square left-1/2 -translate-x-1/2 bottom-6 md:bottom-0 flex items-center justify-center cursor-pointer"
           onClick={handleScrollToSection}
         >
           <Image
@@ -220,6 +234,21 @@ export default function Hero() {
           </div>
         </div>
       </section>
+
+      <section className="py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            What Do Ethernauts Do?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {guilds.map((guild, index) => (
+              <GuildCard key={index} {...guild} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ContributionSection />
 
       {/* Main Editor Section */}
       <section

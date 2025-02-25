@@ -45,3 +45,11 @@ export interface FrameSelectorProps {
 export interface DownloadButtonsProps {
   onDownload: (format: "png" | "jpg") => void;
 }
+
+export interface GuildCardProps {
+  title: string;
+  description: string;
+  guildLead: string;
+  discordHandle: string;
+  extraInfo?: string;
+}
