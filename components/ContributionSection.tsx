@@ -5,7 +5,7 @@ const ContributionSection: React.FC = () => {
     <section id="get-started" className="py-16 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-4">How To Contribute</h2>
-        <p className="text-gray-700 mb-8">
+        <p className="text-gray-300 mb-8">
           Whether you&apos;re a marketing genius, a wordsmith, a designer, a
           developer, or a video creator, there&apos;s a place for you!
         </p>

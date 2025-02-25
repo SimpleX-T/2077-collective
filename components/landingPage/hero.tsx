@@ -235,7 +235,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="py-16 px-6">
+      <section ref={secondSectionRef} className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             What Do Ethernauts Do?
@@ -251,10 +251,7 @@ export default function Hero() {
       <ContributionSection />
 
       {/* Main Editor Section */}
-      <section
-        ref={secondSectionRef}
-        className="backdrop-blur-sm mx-auto py-12 w-full min-h-screen pt-12 relative max-w- px-2"
-      >
+      <section className="backdrop-blur-sm mx-auto py-12 w-full min-h-screen pt-12 relative max-w- px-2">
         <div className="absolute w-32 h-1/2 bg-[#081F2B] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 blur-[120px]" />
         <div className="mb-4 p-4">
           <h2 className="text-3xl mt-6 font-semibold text-center mb-3">

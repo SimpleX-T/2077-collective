@@ -1,6 +1,6 @@
 import { GuildCardProps } from "@/types";
-import Link from "next/link";
 import React from "react";
+import { FaDiscord } from "react-icons/fa6";
 
 const GuildCard: React.FC<GuildCardProps> = ({
   title,
@@ -14,14 +14,11 @@ const GuildCard: React.FC<GuildCardProps> = ({
       <h3 className="text-2xl font-semibold mb-2">{title}</h3>
       <p className="text-[#50AFD4] mb-4">{description}</p>
       <p className="text-[#50AFD4]">
-        Guild Lead: <span className="font-medium">{guildLead}</span> (
-        <Link
-          href={"https://discord.com/" + discordHandle}
-          className="text-blue-600"
-        >
+        Guild Lead: <span className="font-medium">{guildLead}</span>
+        <span className="text-blue-600 bg-blue-100 w-fit p-1 pr-2 text-sm mt-3 rounded-full flex items-center gap-1">
+          <FaDiscord />
           {discordHandle}
-        </Link>
-        )
+        </span>
       </p>
       {extraInfo && <p className="text-gray-500 mt-2">{extraInfo}</p>}
     </div>
