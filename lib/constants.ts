@@ -4,10 +4,10 @@ import {
   Bs2Square,
   Bs3Square,
   BsBook,
+  BsBrush,
   BsCameraVideo,
   BsLaptop,
   BsMegaphone,
-  BsPaintBucket,
 } from "react-icons/bs";
 import { BsClipboard2 } from "react-icons/bs";
 export const profileFrameConfigs: Frame = {
@@ -123,7 +123,7 @@ export const guilds: GuildCardProps[] = [
       "Create stunning infographics, social media images, and provide feedback on our websites. Your designs help make complex concepts accessible.",
     guildLead: "Charis",
     discordHandle: "Charis",
-    Icon: BsPaintBucket,
+    Icon: BsBrush,
   },
   {
     title: "Development Guild",
