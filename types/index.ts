@@ -1,3 +1,5 @@
+import { JSX, ReactNode } from "react";
+
 export interface Frame {
   [frameId: string]: {
     id: string;
@@ -52,4 +54,11 @@ export interface GuildCardProps {
   guildLead: string;
   discordHandle: string;
   extraInfo?: string;
+  Icon?: ReactNode | any | JSX.IntrinsicElements;
+}
+export interface StepCardProps {
+  title: string;
+  description: string;
+  link: string,
+  Icon?: ReactNode | any | JSX.IntrinsicElements;
 }

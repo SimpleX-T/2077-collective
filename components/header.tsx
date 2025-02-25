@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaCircleCheck, FaCopy } from "react-icons/fa6";
 import copy from "copy-to-clipboard";
+import { BsWallet } from "react-icons/bs";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -62,8 +63,8 @@ export default function Header() {
   }, [isModalOpen]);
 
   return (
-    <header className="w-full h-[58px] px-3 py-1 fixed z-10 top-2">
-      <div className="max-w-7xl py-1 flex items-center mx-auto rounded-full border border-gray-700 backdrop-blur-lg bg-transparent w-full h-full">
+    <header className="w-full h-[64px] px-3 py-1 fixed z-30 top-2">
+      <div className="max-w-5xl py-1 flex items-center mx-auto rounded-full border border-gray-700 backdrop-blur-xl bg-transparent w-full h-full">
         <Link href="/" className="mr-auto">
           <Image
             className="w-full h-full object-cover"
@@ -77,7 +78,7 @@ export default function Header() {
           <button
             ref={buttonRef}
             onClick={() => setIsModalOpen((prev) => !prev)}
-            className="mr-4 flex items-center justify-center border border-gray-600 px-4 text-md font-medium py-1 rounded-full"
+            className="mr-4 flex items-center justify-center border border-gray-600 px-4 text-md font-medium py-1 rounded-full space-x-4"
           >
             Support
           </button>
