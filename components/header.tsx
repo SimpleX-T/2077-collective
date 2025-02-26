@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaCircleCheck, FaCopy } from "react-icons/fa6";
 import copy from "copy-to-clipboard";
-import { BsWallet } from "react-icons/bs";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -87,7 +86,7 @@ export default function Header() {
               ref={modalRef}
               className="absolute right-0 mt-2 w-52 bg-[#081f2b] border border-[#46d3d8]/80 backdrop-blur-md rounded-lg p-4 shadow-lg"
             >
-              <p className="text-xs text-white mb-2">Support the Developer</p>
+              <p className="text-xs text-white mb-2">Support the Developers</p>
               <div className="flex items-center justify-between">
                 <span className="text-xs font-mono text-white break-all">
                   {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}

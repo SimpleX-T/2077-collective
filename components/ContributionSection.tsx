@@ -1,14 +1,13 @@
 import { steps } from "@/lib/constants";
 import React from "react";
 import StepsCard from "./StepsCard";
-import Link from "next/link";
 
 const ContributionSection: React.FC = () => {
   return (
     <section id="get-started" className="py-16 px-6 space-y-5">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-4">How To Contribute</h2>
-        <p className="text-gray-300 mb-8">
+        <p className="text-gray-300 mb-8 max-w-[80ch] mx-auto">
           Whether you&apos;re a marketing genius, a wordsmith, a designer, a
           developer, or a video creator, there&apos;s a place for you!
         </p>

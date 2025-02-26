@@ -187,7 +187,7 @@ export default function FrameMaker() {
   };
   return (
 
-      <section className="backdrop-blur-sm mx-auto py-12 w-full min-h-screen pt-12 relative max-w- px-2">
+      <section className="mx-auto py-12 w-full min-h-screen pt-12 relative max-w- px-2">
         <div className="absolute w-32 h-1/2 bg-[#081F2B] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 blur-[120px]" />
         <div className="mb-4 p-4">
           <h2 className="text-3xl mt-6 font-semibold text-center mb-3">

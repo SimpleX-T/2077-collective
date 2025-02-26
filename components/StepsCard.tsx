@@ -1,6 +1,6 @@
 import { StepCardProps } from "@/types";
 import React from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const StepsCard: React.FC<StepCardProps> = ({
@@ -9,7 +9,7 @@ const StepsCard: React.FC<StepCardProps> = ({
   Icon,
   link,
 }) => {
-  const router = useRouter();
+//   const router = useRouter();
   return (
     <div className="bg-[#081F2B] shadow-md rounded-lg py-8 px-6 hover:shadow-2xl  relative overflow-hidden hover:shadow-[#081F2B]/75 hover:-translate-y-2 transition-all  cursor-pointer">
       <Link

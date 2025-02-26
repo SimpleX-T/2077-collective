@@ -9,7 +9,6 @@ import {
   BsLaptop,
   BsMegaphone,
 } from "react-icons/bs";
-import { BsClipboard2 } from "react-icons/bs";
 export const profileFrameConfigs: Frame = {
   circle: {
     id: "circle",
@@ -146,7 +145,7 @@ export const steps: StepCardProps[] = [
   {
     title: "Update",
     description:
-      "Use the Built on Ethereum frame on X, Farcaster, or LinkedIn.You can create your custom version using this tool.",
+      'Use the "Built on Ethereum" frame on X, Farcaster, or LinkedIn.You can create your custom version using this tool.',
     link: "/frame-maker",
     Icon: Bs1Square,
   },
