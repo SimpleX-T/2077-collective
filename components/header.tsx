@@ -60,6 +60,16 @@ export default function Header() {
             height={50}
           />
         </Link>
+
+        <nav className="flex items-center space-x-4 mr-auto">
+          <Link
+            href="/frame-maker"
+            className="text-sm text-[#46d3d8] hover:text-[#46d3d8]/80 transition"
+          >
+            Create your unique frame
+          </Link>
+        </nav>
+
         <div className="relative">
           <button
             ref={buttonRef}
