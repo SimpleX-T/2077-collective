@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="py-4 mt-8">
+    <footer className=" bg-[#0f0f0f] py-6">
       <p className="text-center text-sm text-gray-400">
         developed by{" "}
         <Link
@@ -16,7 +16,7 @@ export default function Footer() {
         </Link>{" "}
         &{" "}
         <Link
-          href="https://x.com/_chiater99"
+          href="https://x.com/0xsolenoid"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-white"

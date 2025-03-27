@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,21 +12,6 @@ export default function Header() {
   const walletAddress = "0xCe76B1EFAb180C551ac07b38809e9E1033bFAfF1";
   const buttonRef = useRef<HTMLButtonElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
-
-  // const handleCopy = async () => {
-  //   if (!navigator.clipboard) return;
-  //   try {
-  //     await navigator.clipboard.writeText(walletAddress);
-  //     setIsCopied(true);
-  //     setTimeout(() => {
-  //       setIsCopied(false);
-  //     }, 5000);
-  //   } catch (error) {
-  //     console.error("Failed to copy wallet address:", error);
-  //   }
-  // };
-
-  // Close the modal when clicking outside of it
 
   const handleCopy = () => {
     const wasSuccessful = copy(walletAddress, { debug: true });
@@ -77,7 +64,7 @@ export default function Header() {
           <button
             ref={buttonRef}
             onClick={() => setIsModalOpen((prev) => !prev)}
-            className="mr-4 flex items-center justify-center border border-gray-600 px-4 text-md font-medium py-1 rounded-full space-x-4"
+            className="mr-4 flex items-center justify-center border border-gray-600 px-4 text-md font-medium py-1 rounded-full space-x-4 text-white"
           >
             Support
           </button>

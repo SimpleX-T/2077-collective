@@ -1,9 +1,7 @@
 import React, { useRef } from "react";
-
 import Image from "next/image";
 import { FaArrowDown } from "react-icons/fa6";
 import { guilds } from "@/lib/constants";
-
 import Link from "next/link";
 import GuildCard from "../GuildCard";
 import ContributionSection from "../ContributionSection";
@@ -20,14 +18,16 @@ export default function Hero() {
       <section className="w-full max-w-5xl min-h-screen relative flex items-center justify-center mx-auto">
         <div className="p-4 mb-6 text-center">
           <h1 className="text-3xl md:text-6xl font-bold">
-            Welcome To 2077 Collective:
+            Built on Ethereum{" "}
             <span className="relative inline-block text-[#46D3D8]">
-              Ethernauts&apos; Contribution Zone!
+              Show the World Where You Belong
             </span>
           </h1>
-          <p className="my-6 text-md text-gray-300">
-            Join the unofficial marketing department of Ethereum and help make
-            Ethereum cool again.{" "}
+          <p className="my-6 text-md text-gray-300 max-w-[80ch] mx-auto">
+            Ethereum is the foundation of the most innovative projects in Web3.
+            Now, it’s time to show your support and rep the network that powers
+            your mission. Join the unofficial marketing department of Ethereum
+            and help make Ethereum cool again.
           </p>
           <Link
             href="#get-started"
@@ -67,17 +67,16 @@ export default function Hero() {
       </section>
 
       <ContributionSection />
-      <div className=" text-center">
+      <div className="text-center py-8">
         <Link
           href="https://app.charmverse.io/2077-collective---contribution-zone/welcome-to-2077-collective-ethernauts-contribution-zone-8830012047551685"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-white text-[#277d80] px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition max-w-[300px] mx-auto"
+          className="bg-white text-[#277d80] px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition max-w-[300px] mx-auto inline-block"
         >
           Explore Tasks on Charmverse
         </Link>
       </div>
-      {/* Main Editor Section */}
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import { JSX, ReactNode } from "react";
+import { IconType } from "react-icons";
 
 export interface Frame {
   [frameId: string]: {
@@ -54,11 +55,11 @@ export interface GuildCardProps {
   guildLead: string;
   discordHandle: string;
   extraInfo?: string;
-  Icon?: ReactNode | any | JSX.IntrinsicElements;
+  Icon?: ReactNode | IconType | JSX.IntrinsicElements;
 }
 export interface StepCardProps {
   title: string;
   description: string;
-  link: string,
-  Icon?: ReactNode | any | JSX.IntrinsicElements;
+  link: string;
+  Icon?: ReactNode | IconType | JSX.IntrinsicElements;
 }
