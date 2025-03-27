@@ -7,6 +7,15 @@ interface Step {
   content: React.ReactNode;
 }
 const ContributionSection: React.FC = () => {
+  const handleShareTweet = async (tweet: string) => {
+    if (!tweet) return;
+
+    const link = document.createElement("a");
+    link.href = `https://x.com/intent/tweet?text=${encodeURIComponent(tweet)}`;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.click();
+  };
   const steps: Step[] = [
     {
       title: "1. Add the Frame",
@@ -37,13 +46,13 @@ const ContributionSection: React.FC = () => {
           </p>
           <button
             onClick={() =>
-              navigator.clipboard.writeText(
+              handleShareTweet(
                 "We’re proud to be Built On Ethereum! Our project leverages Ethereum’s security, decentralization, and innovation to power the future of Web3. Join the movement & show what’s possible with Ethereum. 🚀 @2077Collective @ethereum @ethereumfnd"
               )
             }
-            className="bg-[#46D3D8] text-white px-4 py-2 rounded hover:bg-[#245a5c] transition"
+            className="border border-[#46D3D8] text-white px-4 py-2 rounded-full cursor-pointer hover:bg-[#245a5c] transition"
           >
-            Copy Tweet
+            Share on X
           </button>
         </>
       ),
