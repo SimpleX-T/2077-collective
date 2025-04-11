@@ -67,7 +67,7 @@ export default function Hero() {
       </section>
 
       <ContributionSection />
-      <div className="text-center py-8">
+      {/* <div className="text-center py-8">
         <Link
           href="https://app.charmverse.io/2077-collective---contribution-zone/welcome-to-2077-collective-ethernauts-contribution-zone-8830012047551685"
           target="_blank"
@@ -76,7 +76,7 @@ export default function Hero() {
         >
           Explore Tasks on Charmverse
         </Link>
-      </div>
+      </div> */}
     </main>
   );
 }

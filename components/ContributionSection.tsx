@@ -1,12 +1,14 @@
+import FrameMaker from "@/app/frame-maker/page";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaChevronDown, FaChevronRight } from "react-icons/fa6";
+import { FaChevronDown, FaChevronRight, FaX } from "react-icons/fa6";
 
 interface Step {
   title: string;
   content: React.ReactNode;
 }
 const ContributionSection: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleShareTweet = async (tweet: string) => {
     if (!tweet) return;
 
@@ -24,7 +26,8 @@ const ContributionSection: React.FC = () => {
           Use our generator to add the Built on Ethereum frame to your profile
           picture & banner.{" "}
           <Link
-            href="/frame-maker"
+            href="#"
+            onClick={() => setIsModalOpen(true)}
             className="text-[#46D3D8] hover:underline block"
           >
             Go to Frame Generator
@@ -82,7 +85,19 @@ const ContributionSection: React.FC = () => {
           join, the stronger Ethereum’s network effect becomes. Let’s make
           Ethereum cool again!
         </p>
+        {isModalOpen && (
+          <div className="w-full h-full overflow-scroll top-0 left-0 z-10 fixed bg-[#0f0f0f]/40 backdrop-blur-lg flex items-center justify-center p-20">
+            <span
+              className="top-25  right-20 cursor-pointer z-20 border border-[#46D3D8] rounded-full p-2 text-[#46D3D8] hover:bg-[#46D3D8]/20 transition-all duration-300 flex items-center justify-center absolute"
+              onClick={() => setIsModalOpen(false)}
+            >
+              {" "}
+              <FaX className="size-3 " />
+            </span>
 
+            <FrameMaker />
+          </div>
+        )}
         <Accordion steps={steps} />
       </div>
     </section>
