@@ -86,17 +86,30 @@ const ContributionSection: React.FC = () => {
           Ethereum cool again!
         </p>
         {isModalOpen && (
-          <div className="w-full h-full overflow-scroll top-0 left-0 z-10 fixed bg-[#0f0f0f]/40 backdrop-blur-lg flex items-center justify-center p-20">
-            <span
-              className="top-25  right-20 cursor-pointer z-20 border border-[#46D3D8] rounded-full p-2 text-[#46D3D8] hover:bg-[#46D3D8]/20 transition-all duration-300 flex items-center justify-center absolute"
+          <>
+            {" "}
+            <div
+              className="fixed top-0 left-0 bg-black/40 backdrop-blur-lg w-screen min-h-screen z-10"
               onClick={() => setIsModalOpen(false)}
             >
               {" "}
-              <FaX className="size-3 " />
-            </span>
-
-            <FrameMaker />
-          </div>
+            </div>{" "}
+            <div className="w-11/12 md:w-6xl h-[80vh] mx-auto top-36 left-0 right-0 bottom-20  bg-[#0f0f0f]/40 backdrop-blur-lg flex items-center justify-center p-20 border-4 border-[#46D3D8] rounded-xl fixed z-20">
+              <span
+                className="top-25  right-20 cursor-pointer z-20 border border-[#46D3D8] rounded-full p-2 text-[#46D3D8] hover:bg-[#46D3D8]/20 transition-all duration-300 flex items-center justify-center absolute"
+                onClick={() => setIsModalOpen(false)}
+              >
+                {" "}
+                <FaX className="size-3 " />
+              </span>
+              <div
+                className="w-full h-full flex items-center justify-center overflow-scroll"
+                style={{ scrollbarWidth: "none" }}
+              >
+                <FrameMaker />
+              </div>
+            </div>
+          </>
         )}
         <Accordion steps={steps} />
       </div>
