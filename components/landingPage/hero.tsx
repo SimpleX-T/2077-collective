@@ -53,7 +53,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section ref={secondSectionRef} className="py-16 px-6">
+      {/*<section ref={secondSectionRef} className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">
             What Do Ethernauts Do?
@@ -64,7 +64,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
-      </section>
+      </section>*/}
 
       <ContributionSection />
       {/* <div className="text-center py-8">
