@@ -20,7 +20,7 @@ const ContributionSection: React.FC = () => {
   };
   const steps: Step[] = [
     {
-      title: "1. Add the Frame",
+      title: "1. Add the Frame to your PFP",
       content: (
         <>
           Use our generator to add the Built on Ethereum frame to your profile
@@ -36,11 +36,17 @@ const ContributionSection: React.FC = () => {
       ),
     },
     {
-      title: "2. Share Your Tweet",
+      title: "2. Tag and Share on Socials",
       content: (
         <>
           Use this tweet template to tell the world why your project is
-          #BuiltOnEthereum:
+          #BuiltOnEthereum and make sure to tag{" "}
+          <span className="text-[#46D3D8]">
+            @2077Collective @ethereum @ethereumfnd
+          </span>{" "}
+          & use the hashtag{" "}
+          <span className="text-[#50AFD4]">#BuiltOnEthereum</span> so we can
+          boost your post.:
           <p className="text-[#50AFD4] font-mono bg-[#081F2B] p-4 rounded my-4">
             We’re proud to be Built On Ethereum! Our project leverages
             Ethereum’s security, decentralization, and innovation to power the
@@ -59,21 +65,7 @@ const ContributionSection: React.FC = () => {
           </button>
         </>
       ),
-    },
-    {
-      title: "3. Tag & Boost",
-      content: (
-        <>
-          Tag{" "}
-          <span className="text-[#46D3D8]">
-            @2077Collective @ethereum @ethereumfnd
-          </span>{" "}
-          & use the hashtag{" "}
-          <span className="text-[#50AFD4]">#BuiltOnEthereum</span> so we can
-          boost your post.
-        </>
-      ),
-    },
+    }
   ];
 
   return (
