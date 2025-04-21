@@ -77,6 +77,10 @@ export default function Hero() {
           Explore Tasks on Charmverse
         </Link>
       </div> */}
+<div className="w-md mx-auto">
+<span className="font-semibold text-center"><span className="animate-pulse repeat-infinite">💡</span>This is more than a campaign—it’s a movement.</span>
+<span className="text-center">The more projects that join, the stronger Ethereum’s network effect becomes.</span>
+</div>
     </main>
   );
 }
