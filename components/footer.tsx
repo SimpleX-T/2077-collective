@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className=" bg-[#0f0f0f] py-6">
+    <footer className=" bg-[#0f0f0f] p-6">
       <p className="text-center text-sm text-gray-400">
         developed by{" "}
         <Link
@@ -21,7 +21,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="hover:text-white"
         >
-          solenoid
+          0xsolenoid
         </Link>{" "}
         for 2077 collective with{" "}
         <span className="animate-pulse text-red-600">&#x2764;</span>
