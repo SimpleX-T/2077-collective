@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { FaArrowDown } from "react-icons/fa6";
-import { guilds } from "@/lib/constants";
+{/*import { guilds } from "@/lib/constants";*/}
 import Link from "next/link";
-import GuildCard from "../GuildCard";
+{/*import GuildCard from "../GuildCard";*/}
 import ContributionSection from "../ContributionSection";
 
 export default function Hero() {
