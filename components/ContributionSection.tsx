@@ -45,7 +45,7 @@ const ContributionSection: React.FC = () => {
             @2077Collective @ethereum @ethereumfnd
           </span>{" "}
           & use the hashtag{" "}
-          <span className="text-[#50AFD4]">#BuiltOnEthereum</span> so we can
+          <span className="text-[#46D3D8]">#BuiltOnEthereum</span> so we can
           boost your post.:
           <p className="text-[#50AFD4] font-mono bg-[#081F2B] p-4 rounded my-4">
             We’re proud to be Built On Ethereum! Our project leverages
@@ -148,7 +148,7 @@ const Accordion: React.FC<{ steps: Step[] }> = ({ steps }) => {
             className={`text-[#50AFD4] px-6 transition-all duration-500 ease-in-out
                       overflow-hidden ${
                         openStep === index
-                          ? "max-h-[500px] opacity-100 scale-y-100 py-4 border-t border-[#46D3D8]"
+                          ? "max-h-fit opacity-100 scale-y-100 py-4 border-t border-[#46D3D8]"
                           : "max-h-0 opacity-0 scale-y-90"
                       }`}
           >
