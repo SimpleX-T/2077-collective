@@ -64,7 +64,7 @@ export default function Header() {
         <nav className="flex items-center space-x-4 mr-auto">
           <Link
             href="/frame-maker"
-            className="text-sm text-[#46d3d8] hover:text-[#46d3d8]/80 transition"
+            className="text-sm md:text-lg  text-[#46d3d8] hover:text-[#46d3d8]/80 transition"
           >
             Create your unique frame
           </Link>

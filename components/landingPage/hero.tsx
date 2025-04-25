@@ -23,7 +23,7 @@ export default function Hero() {
               Show the World Where You Belong
             </span>
           </h1>
-          <p className="my-6 text-md text-gray-300 max-w-[80ch] mx-auto">
+          <p className="my-6 text-md md:text-xl 2xl:text-2xl text-gray-300 max-w-[80ch] mx-auto">
             Ethereum is the foundation of the most innovative projects in Web3.
             Now, it’s time to show your support and rep the network that powers
             your mission. Join the unofficial marketing department of Ethereum
@@ -77,11 +77,19 @@ export default function Hero() {
           Explore Tasks on Charmverse
         </Link>
       </div> */}
-<div className="w-10/12 mx-auto flex flex-col gap-3">
-<span className="font-semibold text-center"><span className="animate-pulse repeat-infinite">💡</span>This is more than a campaign—it’s a movement.</span>
-<span className="text-center">The more projects that join, the stronger Ethereum’s network effect becomes.</span>
-<span className="text-2xl text-center font-bold my-4">Let&apos;s make Ethereum cool again!</span>
-</div>
+      <div className="w-10/12 mx-auto flex flex-col gap-3 text-md md:text-xl 2xl:text-2xl">
+        <span className="font-semibold text-center ">
+          <span className="animate-pulse repeat-infinite">💡</span>This is more
+          than a campaign—it’s a movement.
+        </span>
+        <span className="text-center">
+          The more projects that join, the stronger Ethereum’s network effect
+          becomes.
+        </span>
+        <span className="text-2xl text-center font-bold my-4">
+          Let&apos;s make Ethereum cool again!
+        </span>
+      </div>
     </main>
   );
 }

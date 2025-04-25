@@ -65,14 +65,16 @@ const ContributionSection: React.FC = () => {
           </button>
         </>
       ),
-    }
+    },
   ];
 
   return (
     <section id="get-started" className="py-16 px-6 space-y-5">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4 text-[#46D3D8]">How To Join</h2>
-        <p className="text-gray-300 mb-8 max-w-[80ch] mx-auto">
+        <h2 className="text-3xl md:text-4xl 2xl:text-6xl font-bold mb-4 text-[#46D3D8]">
+          How To Join
+        </h2>
+        <p className="text-xl md:text-2xl 2xl:text-4xl text-gray-300 mb-8 max-w-[80ch] mx-auto">
           This is more than a campaign—it’s a movement. The more projects that
           join, the stronger Ethereum’s network effect becomes. Let’s make
           Ethereum cool again!
@@ -131,7 +133,7 @@ const Accordion: React.FC<{ steps: Step[] }> = ({ steps }) => {
                       hover:bg-[#112a37] transition-all duration-300 rounded-xl"
             onClick={() => toggleStep(index)}
           >
-            <h3 className="text-xl font-semibold text-[#46D3D8] tracking-wide">
+            <h3 className="text-xl md:text-2xl xl:text-3xl font-semibold text-[#46D3D8] tracking-wide">
               {step.title}
             </h3>
             <span
@@ -146,7 +148,7 @@ const Accordion: React.FC<{ steps: Step[] }> = ({ steps }) => {
           {/* Content */}
           <div
             className={`text-[#50AFD4] px-6 transition-all duration-500 ease-in-out
-                      overflow-hidden ${
+                      overflow-hidden text-md md:text-xl 2xl:text-2xl ${
                         openStep === index
                           ? "max-h-fit opacity-100 scale-y-100 py-4 border-t border-[#46D3D8]"
                           : "max-h-0 opacity-0 scale-y-90"
